@@ -102,5 +102,20 @@
   <ItemGroup>
     <None Include="Resources\wallpaperBlueBoton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaper menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottonAddProyect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottonSearchProyect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottonDeleteProyect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottonOut.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

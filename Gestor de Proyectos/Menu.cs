@@ -16,5 +16,10 @@ namespace Gestor_de_Proyectos
         {
             InitializeComponent();
         }
+
+        private void buttonOut_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
