@@ -21,5 +21,12 @@ namespace Gestor_de_Proyectos
         {
             Environment.Exit(0);
         }
+
+        private void buttonCreateProyect_Click(object sender, EventArgs e)
+        {
+            CreateProyect f = new CreateProyect();
+            f.Show();
+            this.Hide();
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.buttonCreateProyect.Size = new System.Drawing.Size(350, 350);
             this.buttonCreateProyect.TabIndex = 0;
             this.buttonCreateProyect.UseVisualStyleBackColor = true;
+            this.buttonCreateProyect.Click += new System.EventHandler(this.buttonCreateProyect_Click);
             // 
             // buttonSearchProyect
             // 
