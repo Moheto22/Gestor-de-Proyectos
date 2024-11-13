@@ -21,5 +21,12 @@ namespace Gestor_de_Proyectos
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateDeveloper f = new CreateDeveloper();
+            this.Hide();
+            f.Show();   
+        }
     }
 }

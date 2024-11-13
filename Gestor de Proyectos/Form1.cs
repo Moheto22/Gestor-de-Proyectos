@@ -48,5 +48,10 @@ namespace Gestor_de_Proyectos
                 this.Hide();
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

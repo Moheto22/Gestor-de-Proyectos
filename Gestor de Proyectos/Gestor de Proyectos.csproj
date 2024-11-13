@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateDeveloper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateDeveloper.Designer.cs">
+      <DependentUpon>CreateDeveloper.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateProyect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="Proyecto.cs" />
     <Compile Include="SubTarea.cs" />
     <Compile Include="Tarea.cs" />
+    <EmbeddedResource Include="CreateDeveloper.resx">
+      <DependentUpon>CreateDeveloper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateProyect.resx">
       <DependentUpon>CreateProyect.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +152,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\purpleButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperCreateDev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\orangeButton.png" />
+    <Content Include="Resources\yellowButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

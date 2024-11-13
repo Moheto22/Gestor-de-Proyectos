@@ -47,10 +47,11 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Agregar nuevo desarrollador";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
-            this.button3.BackgroundImage = global::Gestor_de_Proyectos.Properties.Resources.wallpaperBlueBoton;
+            this.button3.BackgroundImage = global::Gestor_de_Proyectos.Properties.Resources.blueButton;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);

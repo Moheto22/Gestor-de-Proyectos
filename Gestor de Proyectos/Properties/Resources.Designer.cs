@@ -63,6 +63,16 @@ namespace Gestor_de_Proyectos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blueButton {
+            get {
+                object obj = ResourceManager.GetObject("blueButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bottonAddProyect {
             get {
                 object obj = ResourceManager.GetObject("bottonAddProyect", resourceCulture);
@@ -146,6 +156,16 @@ namespace Gestor_de_Proyectos.Properties {
         internal static System.Drawing.Bitmap wallpaperBlueBoton {
             get {
                 object obj = ResourceManager.GetObject("wallpaperBlueBoton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaperCreateDev {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperCreateDev", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
