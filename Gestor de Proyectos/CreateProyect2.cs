@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace Gestor_de_Proyectos
 {
-    public partial class CreateProyect : Form
+    public partial class CreateProyect2 : Form
     {
-        public CreateProyect()
+        public CreateProyect2()
         {
             InitializeComponent();
         }
 
-        private void buttonContinueCreateProyect_Click(object sender, EventArgs e)
+        private void labelNameUser_Click(object sender, EventArgs e)
         {
-            CreateProyect2 f = new CreateProyect2();
-            this.Hide();
-            f.Show();
+
         }
     }
 }

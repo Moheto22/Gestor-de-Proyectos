@@ -69,6 +69,7 @@
             this.buttonContinueCreateProyect.TabIndex = 7;
             this.buttonContinueCreateProyect.Text = "Continuar";
             this.buttonContinueCreateProyect.UseVisualStyleBackColor = true;
+            this.buttonContinueCreateProyect.Click += new System.EventHandler(this.buttonContinueCreateProyect_Click);
             // 
             // CreateProyect
             // 

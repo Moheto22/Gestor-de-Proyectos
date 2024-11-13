@@ -52,6 +52,12 @@
     <Compile Include="CreateProyect.Designer.cs">
       <DependentUpon>CreateProyect.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateProyect2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateProyect2.Designer.cs">
+      <DependentUpon>CreateProyect2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Developer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -72,6 +78,9 @@
     <Compile Include="Tarea.cs" />
     <EmbeddedResource Include="CreateProyect.resx">
       <DependentUpon>CreateProyect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateProyect2.resx">
+      <DependentUpon>CreateProyect2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -128,6 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\wallpaperForm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purpleButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
