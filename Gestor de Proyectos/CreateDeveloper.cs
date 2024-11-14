@@ -12,9 +12,14 @@ namespace Gestor_de_Proyectos
 {
     public partial class CreateDeveloper : Form
     {
-        public CreateDeveloper()
+        private List<Proyecto> listPoroyects = null;
+        private List<Developer> listDev = null;
+
+        public CreateDeveloper(List<Developer> listDev, List<Proyecto> listPoroyects)
         {
             InitializeComponent();
+            this.listDev = listDev;
+            this.listPoroyects = listPoroyects;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -66,7 +71,8 @@ namespace Gestor_de_Proyectos
             }
             else
             {
-                CreateProyect2 f = new CreateProyect2();
+                listDev.Add(new Developer(textBoxNameDev.Text,textBoxSurnameDev.Text,textBoxEmail.Text,textBoxPasswordDev.Text));
+                CreateProyect2 f = new CreateProyect2(listPoroyects,listDev);
                 f.Show();
                 this.Hide();
             }

@@ -12,9 +12,18 @@ namespace Gestor_de_Proyectos
 {
     public partial class Menu : Form
     {
+        private List<Proyecto> listProyects;
+
         public Menu()
         {
+            List<Proyecto> listProyects = new List<Proyecto>();
             InitializeComponent();
+        }
+        public Menu(List<Proyecto> listProyects)
+        {
+            this.listProyects = listProyects;
+            InitializeComponent();
+
         }
 
         private void buttonOut_Click(object sender, EventArgs e)
@@ -24,9 +33,14 @@ namespace Gestor_de_Proyectos
 
         private void buttonCreateProyect_Click(object sender, EventArgs e)
         {
-            CreateProyect f = new CreateProyect();
+            CreateProyect f = new CreateProyect(listProyects);
             f.Show();
             this.Hide();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

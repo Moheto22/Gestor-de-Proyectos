@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gestor_de_Proyectos
 {
-    internal class Developer
+    public class Developer
     {
         private static int total = 0;
         private int id { get; set; }
@@ -17,11 +17,11 @@ namespace Gestor_de_Proyectos
         private String email { get; set; }
         private List<Tarea> tasks { get; set; }
 
-        public Developer(String name, String surname, String email,String type,List<Tarea>task,String password) {
+        public Developer(String name, String surname, String email,String password) {
             this.name = name;
             this.surname = surname;
             this.email = email;
-            this.tasks = task;
+            this.tasks = new List<Tarea>();
             this.password = password;
             Developer.total++;
             this.id = Developer.total;

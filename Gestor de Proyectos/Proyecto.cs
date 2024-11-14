@@ -7,7 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Gestor_de_Proyectos
 {
-    internal class Proyecto
+    public class Proyecto
     {
         private static int total = 0;
         private int id { get; set; }

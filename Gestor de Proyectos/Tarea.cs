@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestor_de_Proyectos
 {
-    internal class Tarea
+    public class Tarea
     {
         private static int total = 0;
         private int id { get; set; }

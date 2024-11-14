@@ -12,8 +12,18 @@ namespace Gestor_de_Proyectos
 {
     public partial class CreateProyect2 : Form
     {
-        public CreateProyect2()
+        private List<Proyecto> listProyects = null;
+        private List<Developer> listDev = null;
+        public CreateProyect2(List<Proyecto> listProyects)
         {
+            this.listDev = new List<Developer>();
+            this.listProyects = listProyects;
+            InitializeComponent();
+        }
+        public CreateProyect2(List<Proyecto> listProyects, List<Developer> listDev)
+        {
+            this.listDev = listDev;
+            this.listProyects = listProyects;
             InitializeComponent();
         }
 
@@ -24,7 +34,7 @@ namespace Gestor_de_Proyectos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CreateDeveloper f = new CreateDeveloper();
+            CreateDeveloper f = new CreateDeveloper(listDev,listProyects);
             this.Hide();
             f.Show();   
         }
