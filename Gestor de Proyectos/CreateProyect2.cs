@@ -38,5 +38,12 @@ namespace Gestor_de_Proyectos
             this.Hide();
             f.Show();   
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DeleteUser f = new DeleteUser(listDev,listProyects);
+            this.Hide();
+            f.Show();
+        }
     }
 }

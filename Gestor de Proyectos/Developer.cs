@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Gestor_de_Proyectos
 {
@@ -33,5 +34,10 @@ namespace Gestor_de_Proyectos
         public void removeTask(Tarea task) {
             tasks.Remove(task); 
         }
+        public override string ToString()
+        {
+            return $"{name} {surname}";
+        }
+       
     }
 }
