@@ -11,9 +11,9 @@ namespace Gestor_de_Proyectos
         private static int total = 0;
         private int id { get; set; }
         private string name { get; set; }
-        private Tarea task { get; set; }
+        private Task task { get; set; }
         private String state { get; set; }
-        public SubTarea( string name, Tarea task)
+        public SubTarea( string name, Task task)
         {
             this.name = name;
             this.task = task;

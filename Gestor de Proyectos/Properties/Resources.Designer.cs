@@ -183,9 +183,39 @@ namespace Gestor_de_Proyectos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wallpaperCreateTask {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperCreateTask", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaperCreateTasks {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperCreateTasks", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wallpaperDeleteUser {
             get {
                 object obj = ResourceManager.GetObject("wallpaperDeleteUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaperEditProyect {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperEditProyect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +236,16 @@ namespace Gestor_de_Proyectos.Properties {
         internal static System.Drawing.Bitmap wallpaperLogin {
             get {
                 object obj = ResourceManager.GetObject("wallpaperLogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellowButton {
+            get {
+                object obj = ResourceManager.GetObject("yellowButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

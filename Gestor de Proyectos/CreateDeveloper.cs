@@ -12,10 +12,10 @@ namespace Gestor_de_Proyectos
 {
     public partial class CreateDeveloper : Form
     {
-        private List<Proyecto> listPoroyects = null;
+        private List<Proyect> listPoroyects = null;
         private List<Developer> listDev = null;
 
-        public CreateDeveloper(List<Developer> listDev, List<Proyecto> listPoroyects)
+        public CreateDeveloper(List<Developer> listDev, List<Proyect> listPoroyects)
         {
             InitializeComponent();
             this.listDev = listDev;

@@ -12,8 +12,8 @@ namespace Gestor_de_Proyectos
 {
     public partial class CreateProyect : Form
     {
-        private List<Proyecto> listPoroyects = null;
-        public CreateProyect(List<Proyecto> listProyects)
+        private List<Proyect> listPoroyects = null;
+        public CreateProyect(List<Proyect> listProyects)
         {
             this.listPoroyects = listProyects;
             InitializeComponent();

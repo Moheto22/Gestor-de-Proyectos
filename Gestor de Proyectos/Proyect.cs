@@ -7,20 +7,20 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Gestor_de_Proyectos
 {
-    public class Proyecto
+    public class Proyect
     {
         private static int total = 0;
         private int id { get; set; }
         private string name { get; set; }
         private List<Developer> developers { get; set; }
-        private List<Tarea> tasks { get; set; }
-        public Proyecto( string name, List<Developer> developers, List<Tarea> tasks)
+        private List<Task> tasks { get; set; }
+        public Proyect( string name, List<Developer> developers, List<Task> tasks)
         {
             this.name = name;
             this.developers = developers;
             this.tasks = tasks;
-            Proyecto.total++;
-            this.id = Proyecto.total;
+            Proyect.total++;
+            this.id = Proyect.total;
         }
         public void addDeveloper(Developer developer)
         {
@@ -30,11 +30,11 @@ namespace Gestor_de_Proyectos
         {
             this.developers.Remove(developer);
         }
-        public void addTask(Tarea task)
+        public void addTask(Task task)
         {
             tasks.Add(task);
         }
-        public void removeTask(Tarea task)
+        public void removeTask(Task task)
         {
             tasks.Remove(task);
         }

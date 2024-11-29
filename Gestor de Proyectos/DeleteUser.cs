@@ -13,8 +13,8 @@ namespace Gestor_de_Proyectos
     public partial class DeleteUser : Form
     {
         private List<Developer> listDev;
-        private List<Proyecto> listProyects;
-        public DeleteUser(List<Developer> listDev, List<Proyecto> listProyects)
+        private List<Proyect> listProyects;
+        public DeleteUser(List<Developer> listDev, List<Proyect> listProyects)
         {
             this.listProyects = listProyects;
             this.listDev = listDev;

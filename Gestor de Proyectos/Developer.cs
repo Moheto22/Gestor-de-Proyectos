@@ -16,22 +16,22 @@ namespace Gestor_de_Proyectos
         private String surname { get; set; }
         private String password { get; set; }
         private String email { get; set; }
-        private List<Tarea> tasks { get; set; }
+        private List<Task> tasks { get; set; }
 
         public Developer(String name, String surname, String email,String password) {
             this.name = name;
             this.surname = surname;
             this.email = email;
-            this.tasks = new List<Tarea>();
+            this.tasks = new List<Task>();
             this.password = password;
             Developer.total++;
             this.id = Developer.total;
         }
-        public void addTask(Tarea task)
+        public void addTask(Task task)
         {
             tasks.Add(task);
         }
-        public void removeTask(Tarea task) {
+        public void removeTask(Task task) {
             tasks.Remove(task); 
         }
         public override string ToString()

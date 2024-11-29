@@ -12,14 +12,14 @@ namespace Gestor_de_Proyectos
 {
     public partial class Menu : Form
     {
-        private List<Proyecto> listProyects;
+        private List<Proyect> listProyects;
 
         public Menu()
         {
-            List<Proyecto> listProyects = new List<Proyecto>();
+            List<Proyect> listProyects = new List<Proyect>();
             InitializeComponent();
         }
-        public Menu(List<Proyecto> listProyects)
+        public Menu(List<Proyect> listProyects)
         {
             this.listProyects = listProyects;
             InitializeComponent();

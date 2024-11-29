@@ -64,12 +64,24 @@
     <Compile Include="CreateProyect2.Designer.cs">
       <DependentUpon>CreateProyect2.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTask.Designer.cs">
+      <DependentUpon>CreateTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Developer.cs" />
     <Compile Include="DeleteUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DeleteUser.Designer.cs">
       <DependentUpon>DeleteUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProyect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProyect.Designer.cs">
+      <DependentUpon>EditProyect.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -85,9 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proyecto.cs" />
-    <Compile Include="SubTarea.cs" />
-    <Compile Include="Tarea.cs" />
+    <Compile Include="Proyect.cs" />
+    <Compile Include="SubTask.cs" />
+    <Compile Include="Task.cs" />
     <EmbeddedResource Include="CreateDeveloper.resx">
       <DependentUpon>CreateDeveloper.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,8 +109,14 @@
     <EmbeddedResource Include="CreateProyect2.resx">
       <DependentUpon>CreateProyect2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateTask.resx">
+      <DependentUpon>CreateTask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteUser.resx">
       <DependentUpon>DeleteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProyect.resx">
+      <DependentUpon>EditProyect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -170,8 +188,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\orangeButton.png" />
+    <None Include="Resources\yellowButton1.png" />
     <None Include="Resources\wallpaperDeleteUser.png" />
     <None Include="Resources\orangeButton1.png" />
+    <None Include="Resources\wallpaperEditProyect.png" />
+    <None Include="Resources\wallpaperCreateTask.png" />
+    <None Include="Resources\wallpaperCreateTasks.png" />
     <Content Include="Resources\yellowButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

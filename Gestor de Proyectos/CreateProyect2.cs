@@ -12,15 +12,15 @@ namespace Gestor_de_Proyectos
 {
     public partial class CreateProyect2 : Form
     {
-        private List<Proyecto> listProyects = null;
+        private List<Proyect> listProyects = null;
         private List<Developer> listDev = null;
-        public CreateProyect2(List<Proyecto> listProyects)
+        public CreateProyect2(List<Proyect> listProyects)
         {
             this.listDev = new List<Developer>();
             this.listProyects = listProyects;
             InitializeComponent();
         }
-        public CreateProyect2(List<Proyecto> listProyects, List<Developer> listDev)
+        public CreateProyect2(List<Proyect> listProyects, List<Developer> listDev)
         {
             this.listDev = listDev;
             this.listProyects = listProyects;
@@ -36,7 +36,7 @@ namespace Gestor_de_Proyectos
         {
             CreateDeveloper f = new CreateDeveloper(listDev,listProyects);
             this.Hide();
-            f.Show();   
+            f.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -44,6 +44,21 @@ namespace Gestor_de_Proyectos
             DeleteUser f = new DeleteUser(listDev,listProyects);
             this.Hide();
             f.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listDev.Count != 0)
+            {
+                EditProyect f = new EditProyect(listProyects, listProyects.Count - 1);
+                this.Hide();
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error: No hay desarrolladores dentro del proyecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
