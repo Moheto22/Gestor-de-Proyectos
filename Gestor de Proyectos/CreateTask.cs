@@ -16,11 +16,13 @@ namespace Gestor_de_Proyectos
         private int index;
         private Task task;
         private List<SubTask> listSubTasks;
+        private List<Developer> listDevs;
         public CreateTask(List<Proyect> listProyects, int index)
         {
             this.listProyects = listProyects;
             this.index = index;
             this.listSubTasks = new List<SubTask>();
+            this.listDevs = new List<Developer>();
             this.task = null;
             InitializeComponent();
             listBoxDevProyect.Items.Clear();
@@ -56,6 +58,26 @@ namespace Gestor_de_Proyectos
                 listBoxSubTasks.DataSource = listSubTasks;
                 textBoxNameSubTask.Text = "";
             }
+        }
+
+        private void buttonSaveDevs_Click(object sender, EventArgs e)
+        {
+            listDevs.Clear();
+            foreach (var item in listBoxDevProyect.SelectedItems)
+            {
+                listDevs.Add((Developer)item);
+            }
+            MessageBox.Show("Se han guardado los desarrolladores correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonDeletteSubTask_Click(object sender, EventArgs e)
+        {
+            foreach (var item in listBoxSubTasks.SelectedItems)
+            {
+                listSubTasks.Remove((SubTask)item);
+            }
+            listBoxSubTasks.DataSource = null;
+            listBoxSubTasks.DataSource= listSubTasks;
         }
     }
 }

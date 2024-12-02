@@ -40,6 +40,7 @@
             this.buttonCreateSubTask = new System.Windows.Forms.Button();
             this.buttonDeletteSubTask = new System.Windows.Forms.Button();
             this.buttonCreateTask = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labelNameTask
@@ -152,6 +153,7 @@
             this.buttonSaveDevs.TabIndex = 24;
             this.buttonSaveDevs.Text = "Guardar";
             this.buttonSaveDevs.UseVisualStyleBackColor = true;
+            this.buttonSaveDevs.Click += new System.EventHandler(this.buttonSaveDevs_Click);
             // 
             // buttonCreateSubTask
             // 
@@ -181,6 +183,7 @@
             this.buttonDeletteSubTask.TabIndex = 26;
             this.buttonDeletteSubTask.Text = "Eliminar";
             this.buttonDeletteSubTask.UseVisualStyleBackColor = true;
+            this.buttonDeletteSubTask.Click += new System.EventHandler(this.buttonDeletteSubTask_Click);
             // 
             // buttonCreateTask
             // 
@@ -196,6 +199,13 @@
             this.buttonCreateTask.Text = "Crear tarea";
             this.buttonCreateTask.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(1555, 264);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 28;
+            // 
             // CreateTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +213,7 @@
             this.BackgroundImage = global::Gestor_de_Proyectos.Properties.Resources.wallpaperCreateTasks;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.buttonCreateTask);
             this.Controls.Add(this.buttonDeletteSubTask);
             this.Controls.Add(this.buttonCreateSubTask);
@@ -238,5 +249,6 @@
         private System.Windows.Forms.Button buttonCreateSubTask;
         private System.Windows.Forms.Button buttonDeletteSubTask;
         private System.Windows.Forms.Button buttonCreateTask;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
