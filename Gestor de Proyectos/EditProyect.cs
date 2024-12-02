@@ -33,7 +33,7 @@ namespace Gestor_de_Proyectos
 
         private void buttonAddTask_Click(object sender, EventArgs e)
         {
-            CreateTask createTask = new CreateTask();
+            CreateTask createTask = new CreateTask(listProyects,index);
             this.Hide();
             createTask.Show();
         }

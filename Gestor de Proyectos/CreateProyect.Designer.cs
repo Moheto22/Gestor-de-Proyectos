@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.labelNameUser = new System.Windows.Forms.Label();
-            this.textBoxNameProyect = new System.Windows.Forms.TextBox();
             this.buttonContinueCreateProyect = new System.Windows.Forms.Button();
+            this.textBoxNameProyect = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelNameUser
@@ -43,17 +43,6 @@
             this.labelNameUser.Size = new System.Drawing.Size(296, 48);
             this.labelNameUser.TabIndex = 6;
             this.labelNameUser.Text = "Nombre del proyecto";
-            // 
-            // textBoxNameProyect
-            // 
-            this.textBoxNameProyect.BackColor = System.Drawing.Color.White;
-            this.textBoxNameProyect.Font = new System.Drawing.Font("Myanmar Text", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNameProyect.ForeColor = System.Drawing.Color.Black;
-            this.textBoxNameProyect.Location = new System.Drawing.Point(786, 498);
-            this.textBoxNameProyect.Name = "textBoxNameProyect";
-            this.textBoxNameProyect.Size = new System.Drawing.Size(333, 58);
-            this.textBoxNameProyect.TabIndex = 5;
-            this.textBoxNameProyect.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonContinueCreateProyect
             // 
@@ -71,6 +60,18 @@
             this.buttonContinueCreateProyect.UseVisualStyleBackColor = true;
             this.buttonContinueCreateProyect.Click += new System.EventHandler(this.buttonContinueCreateProyect_Click);
             // 
+            // textBoxNameProyect
+            // 
+            this.textBoxNameProyect.BackColor = System.Drawing.Color.White;
+            this.textBoxNameProyect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNameProyect.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxNameProyect.Font = new System.Drawing.Font("Myanmar Text", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNameProyect.ForeColor = System.Drawing.Color.Black;
+            this.textBoxNameProyect.Location = new System.Drawing.Point(775, 497);
+            this.textBoxNameProyect.Name = "textBoxNameProyect";
+            this.textBoxNameProyect.Size = new System.Drawing.Size(357, 73);
+            this.textBoxNameProyect.TabIndex = 16;
+            // 
             // CreateProyect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -78,9 +79,9 @@
             this.BackgroundImage = global::Gestor_de_Proyectos.Properties.Resources.wallpaperForm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1888, 1002);
+            this.Controls.Add(this.textBoxNameProyect);
             this.Controls.Add(this.buttonContinueCreateProyect);
             this.Controls.Add(this.labelNameUser);
-            this.Controls.Add(this.textBoxNameProyect);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateProyect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
@@ -93,7 +94,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelNameUser;
-        private System.Windows.Forms.TextBox textBoxNameProyect;
         private System.Windows.Forms.Button buttonContinueCreateProyect;
+        private System.Windows.Forms.TextBox textBoxNameProyect;
     }
 }

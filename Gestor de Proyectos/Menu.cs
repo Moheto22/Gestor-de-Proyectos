@@ -16,7 +16,7 @@ namespace Gestor_de_Proyectos
 
         public Menu()
         {
-            List<Proyect> listProyects = new List<Proyect>();
+            this.listProyects = new List<Proyect>();
             InitializeComponent();
         }
         public Menu(List<Proyect> listProyects)

@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace Gestor_de_Proyectos
 {
-    public class SubTarea
+    public class SubTask
     {
         private static int total = 0;
         private int id { get; set; }
         private string name { get; set; }
-        private Task task { get; set; }
         private String state { get; set; }
-        public SubTarea( string name, Task task)
+        public SubTask ( string name)
         {
             this.name = name;
-            this.task = task;
-            SubTarea.total++;
-            this.id = SubTarea.total;
+            SubTask.total++;
+            this.id = SubTask.total;
             this.state = "new";
         }
-
+        public override string ToString()
+        {
+            return $"{name}";
+        }
     }
 }

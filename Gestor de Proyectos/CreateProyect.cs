@@ -21,6 +21,8 @@ namespace Gestor_de_Proyectos
 
         private void buttonContinueCreateProyect_Click(object sender, EventArgs e)
         {
+            string name = textBoxNameProyect.Text;
+            listPoroyects.Add(new Proyect(name));
             CreateProyect2 f = new CreateProyect2(listPoroyects);
             this.Hide();
             f.Show();

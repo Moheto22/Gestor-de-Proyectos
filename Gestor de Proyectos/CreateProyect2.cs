@@ -50,6 +50,7 @@ namespace Gestor_de_Proyectos
         {
             if (listDev.Count != 0)
             {
+                listProyects[listProyects.Count - 1].developers = listDev;
                 EditProyect f = new EditProyect(listProyects, listProyects.Count - 1);
                 this.Hide();
                 f.Show();

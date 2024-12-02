@@ -111,6 +111,7 @@
             this.listBoxDevProyect.ItemHeight = 37;
             this.listBoxDevProyect.Location = new System.Drawing.Point(268, 441);
             this.listBoxDevProyect.Name = "listBoxDevProyect";
+            this.listBoxDevProyect.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxDevProyect.Size = new System.Drawing.Size(317, 263);
             this.listBoxDevProyect.TabIndex = 18;
             // 
@@ -121,6 +122,7 @@
             this.listBoxSubTasks.ItemHeight = 37;
             this.listBoxSubTasks.Location = new System.Drawing.Point(707, 441);
             this.listBoxSubTasks.Name = "listBoxSubTasks";
+            this.listBoxSubTasks.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxSubTasks.Size = new System.Drawing.Size(1004, 263);
             this.listBoxSubTasks.TabIndex = 19;
             this.listBoxSubTasks.SelectedIndexChanged += new System.EventHandler(this.listBoxSubTasks_SelectedIndexChanged);
@@ -164,6 +166,7 @@
             this.buttonCreateSubTask.TabIndex = 25;
             this.buttonCreateSubTask.Text = "Crear";
             this.buttonCreateSubTask.UseVisualStyleBackColor = true;
+            this.buttonCreateSubTask.Click += new System.EventHandler(this.buttonCreateSubTask_Click);
             // 
             // buttonDeletteSubTask
             // 
@@ -215,6 +218,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateTask";
             this.Text = "CreateTask";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

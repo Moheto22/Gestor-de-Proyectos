@@ -211,6 +211,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditProyect";
             this.Text = "EditProyect";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.EditProyect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).EndInit();
             this.ResumeLayout(false);

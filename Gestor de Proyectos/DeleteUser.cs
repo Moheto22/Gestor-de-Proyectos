@@ -33,7 +33,12 @@ namespace Gestor_de_Proyectos
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-
+            foreach (var item in listBoxDevData.SelectedItems)
+            { 
+                listDev.Remove((Developer)item);
+            }
+            listBoxDevData.DataSource = null;
+            listBoxDevData.DataSource=listDev;
         }
     }
 }

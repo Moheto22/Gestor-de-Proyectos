@@ -12,13 +12,13 @@ namespace Gestor_de_Proyectos
         private static int total = 0;
         private int id { get; set; }
         private string name { get; set; }
-        private List<Developer> developers { get; set; }
+        public List<Developer> developers { get; set; }
         private List<Task> tasks { get; set; }
-        public Proyect( string name, List<Developer> developers, List<Task> tasks)
+        public Proyect( string name)
         {
             this.name = name;
-            this.developers = developers;
-            this.tasks = tasks;
+            this.developers = new List<Developer>();
+            this.tasks = new List<Task>();
             Proyect.total++;
             this.id = Proyect.total;
         }
