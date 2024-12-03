@@ -10,9 +10,9 @@ namespace Gestor_de_Proyectos
     {
         private static int total = 0;
         private int id { get; set; }
-        private String name { get; set; }
+        public String name { get; set; }
         private List<SubTask> subTask { get; set; }
-        private bool finish { get; set; }
+        public bool finish { get; set; }
         private List<Developer> developers { get; set; }
         public DateTime dateFinish { get; set; }
 
@@ -42,6 +42,48 @@ namespace Gestor_de_Proyectos
         {
             this.subTask.Remove(subTask);
         }
+        public string takeNameDevs()
+        {
+            string names = "";
+            for (int i = 0; i < this.developers.Count; i++)
+            {
+                names += this.developers[i].ToString();
+                if (i == this.developers.Count - 1)
+                {
+                    names += ".";
+                }
+                else
+                {
+                    names += ", ";
+                }
+            }
+            return names;
+        }
+        public int getPercentatge()
+        {
+            int subTaskDone = takeSubTaskDone();
+            if (subTaskDone == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)this.subTask.Count / subTaskDone;
+            }
             
+        }
+
+        private int takeSubTaskDone()
+        {
+            int total = 0;
+            foreach (var subTask in this.subTask)
+            {
+                if (subTask.state == "done")
+                {
+                    total++;
+                }
+            }
+            return total;
+        }
     }
 }

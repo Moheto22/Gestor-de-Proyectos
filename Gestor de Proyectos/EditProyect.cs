@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,7 +33,14 @@ namespace Gestor_de_Proyectos
             List<Task> tasksToShow = takeTaskToShow(proyect,page);
             if (tasksToShow != null && tasksToShow.Count > 0)
             {
-
+                var datos = tasksToShow.Select(t => new
+                {
+                    t.name,
+                    listDev = t.takeNameDevs(),
+                    percentatge = t.getPercentatge() + "%",
+                    finish = t.finish.ToString()
+                }).ToList();
+                dataGridViewTask.DataSource = datos;
             }
             
             
@@ -41,6 +50,8 @@ namespace Gestor_de_Proyectos
         {
             List<Task> tasks = new List<Task>();
             DateTime date;
+            DateTime dateToShow = DateTime.Now;
+            bool firstTake = false;
             bool finish = false;
             int actualPage = 0;
             int i = 0;
@@ -51,7 +62,7 @@ namespace Gestor_de_Proyectos
             else
             {
                 date = proyect.tasks[0].dateFinish;
-                while (i==proyect.tasks.Count && !finish)
+                while (i<proyect.tasks.Count && !finish)
                 {   
                     if (proyect.tasks[i].dateFinish != date)
                     {
@@ -59,6 +70,10 @@ namespace Gestor_de_Proyectos
                     }
                     if (actualPage == page)
                     {
+                        if (!firstTake)
+                        {
+                            dateToShow = date;
+                        }
                         tasks.Add(proyect.tasks[i]);
                     }
                     else if (tasks.Count != 1)
@@ -66,10 +81,13 @@ namespace Gestor_de_Proyectos
                         finish = true;
                     }
                     i++;
-
                 }
-                if (!finish) {
+                if (!finish && tasks.Count == 0) {
                     MessageBox.Show("No hay tareas mas haya de la fecha actual", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                   labelDate.Text = dateToShow.ToString();
                 }
             }
             return tasks;

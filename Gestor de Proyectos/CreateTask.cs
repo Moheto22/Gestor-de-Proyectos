@@ -82,6 +82,7 @@ namespace Gestor_de_Proyectos
         private void buttonCreateTask_Click(object sender, EventArgs e)
         {
             string error = "Error:\n";
+            string title = textBoxNameTask.Text;
             bool valide = true;
             if (listDevs.Count == 0)
             {
@@ -94,14 +95,13 @@ namespace Gestor_de_Proyectos
                 error += "No se han asignado subtareas a la tarea\n";
                 valide = false;
             }
-            if (textBoxNameTask.Text == "")
+            if (title == "")
             {
                 error += "No se hay titulo para la tarea\n";
                 valide = false;
             }
             if (valide)
             {
-                string title = textBoxNameTask.Text;
                 task = new Task(title,listSubTasks,listDevs,dateTimePickerTask.Value);
                 foreach (var dev in listDevs)
                 {

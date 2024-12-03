@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridViewTask = new System.Windows.Forms.DataGridView();
-            this.nameTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.devs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.percentatge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAddTask = new System.Windows.Forms.Button();
             this.buttonPreviousDay = new System.Windows.Forms.Button();
             this.buttonNextDay = new System.Windows.Forms.Button();
@@ -41,6 +37,10 @@
             this.buttonDeleteTask = new System.Windows.Forms.Button();
             this.buttonOut = new System.Windows.Forms.Button();
             this.labelDate = new System.Windows.Forms.Label();
+            this.nameTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.devs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Porcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,34 +51,13 @@
             this.dataGridViewTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameTask,
             this.devs,
-            this.percentatge,
+            this.Porcentaje,
             this.finish});
             this.dataGridViewTask.Location = new System.Drawing.Point(709, 268);
             this.dataGridViewTask.Name = "dataGridViewTask";
+            this.dataGridViewTask.ReadOnly = true;
             this.dataGridViewTask.Size = new System.Drawing.Size(1029, 428);
             this.dataGridViewTask.TabIndex = 0;
-            // 
-            // nameTask
-            // 
-            this.nameTask.HeaderText = "Nombre de la Tarea";
-            this.nameTask.Name = "nameTask";
-            this.nameTask.Width = 300;
-            // 
-            // devs
-            // 
-            this.devs.HeaderText = "Lista de Desarrolladores";
-            this.devs.Name = "devs";
-            this.devs.Width = 485;
-            // 
-            // percentatge
-            // 
-            this.percentatge.HeaderText = "Porcentaje";
-            this.percentatge.Name = "percentatge";
-            // 
-            // finish
-            // 
-            this.finish.HeaderText = "Acabado";
-            this.finish.Name = "finish";
             // 
             // buttonAddTask
             // 
@@ -192,6 +171,36 @@
             this.labelDate.Text = "--/--/----";
             this.labelDate.Click += new System.EventHandler(this.labelDate_Click);
             // 
+            // nameTask
+            // 
+            this.nameTask.DataPropertyName = "name";
+            this.nameTask.HeaderText = "Nombre de la Tarea";
+            this.nameTask.Name = "nameTask";
+            this.nameTask.ReadOnly = true;
+            this.nameTask.Width = 300;
+            // 
+            // devs
+            // 
+            this.devs.DataPropertyName = "listDev";
+            this.devs.HeaderText = "Lista de Desarrolladores";
+            this.devs.Name = "devs";
+            this.devs.ReadOnly = true;
+            this.devs.Width = 485;
+            // 
+            // Porcentaje
+            // 
+            this.Porcentaje.DataPropertyName = "percentatge";
+            this.Porcentaje.HeaderText = "Porcentaje";
+            this.Porcentaje.Name = "Porcentaje";
+            this.Porcentaje.ReadOnly = true;
+            // 
+            // finish
+            // 
+            this.finish.DataPropertyName = "finish";
+            this.finish.HeaderText = "Acabado";
+            this.finish.Name = "finish";
+            this.finish.ReadOnly = true;
+            // 
             // EditProyect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,7 +241,7 @@
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameTask;
         private System.Windows.Forms.DataGridViewTextBoxColumn devs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn percentatge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Porcentaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn finish;
     }
 }

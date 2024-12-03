@@ -11,7 +11,7 @@ namespace Gestor_de_Proyectos
         private static int total = 0;
         private int id { get; set; }
         private string name { get; set; }
-        private String state { get; set; }
+        public String state { get; set; }
         public SubTask ( string name)
         {
             this.name = name;
