@@ -13,7 +13,7 @@ namespace Gestor_de_Proyectos
         private int id { get; set; }
         private string name { get; set; }
         public List<Developer> developers { get; set; }
-        private List<Task> tasks { get; set; }
+        public List<Task> tasks { get; set; }
         public Proyect( string name)
         {
             this.name = name;

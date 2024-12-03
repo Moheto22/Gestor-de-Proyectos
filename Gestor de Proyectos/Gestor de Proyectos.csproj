@@ -194,6 +194,8 @@
     <None Include="Resources\wallpaperEditProyect.png" />
     <None Include="Resources\wallpaperCreateTask.png" />
     <None Include="Resources\wallpaperCreateTasks.png" />
+    <None Include="Resources\wallpaperCreateTaskFinal.png" />
+    <None Include="Resources\wallpaperCreateTaskDef.png" />
     <Content Include="Resources\yellowButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

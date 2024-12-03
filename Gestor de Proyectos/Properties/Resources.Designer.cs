@@ -193,6 +193,26 @@ namespace Gestor_de_Proyectos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wallpaperCreateTaskDef {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperCreateTaskDef", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaperCreateTaskFinal {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperCreateTaskFinal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wallpaperCreateTasks {
             get {
                 object obj = ResourceManager.GetObject("wallpaperCreateTasks", resourceCulture);

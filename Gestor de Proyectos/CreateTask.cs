@@ -6,8 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-
+using System.Windows.Forms; 
 namespace Gestor_de_Proyectos
 {
     public partial class CreateTask : Form
@@ -78,6 +77,45 @@ namespace Gestor_de_Proyectos
             }
             listBoxSubTasks.DataSource = null;
             listBoxSubTasks.DataSource= listSubTasks;
+        }
+
+        private void buttonCreateTask_Click(object sender, EventArgs e)
+        {
+            string error = "Error:\n";
+            bool valide = true;
+            if (listDevs.Count == 0)
+            {
+                error += "No se han asignado desarrolladores a la tarea\n";
+                valide = false;
+            }
+            
+            if (listSubTasks.Count == 0)
+            {
+                error += "No se han asignado subtareas a la tarea\n";
+                valide = false;
+            }
+            if (textBoxNameTask.Text == "")
+            {
+                error += "No se hay titulo para la tarea\n";
+                valide = false;
+            }
+            if (valide)
+            {
+                string title = textBoxNameTask.Text;
+                task = new Task(title,listSubTasks,listDevs,dateTimePickerTask.Value);
+                foreach (var dev in listDevs)
+                {
+                    dev.addTask(task);
+                }
+                listProyects[index].addTask(task);
+                EditProyect f = new EditProyect(listProyects,index);
+                f.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show(error, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

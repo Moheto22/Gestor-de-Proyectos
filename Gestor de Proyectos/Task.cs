@@ -14,7 +14,7 @@ namespace Gestor_de_Proyectos
         private List<SubTask> subTask { get; set; }
         private bool finish { get; set; }
         private List<Developer> developers { get; set; }
-        private DateTime dateFinish { get; set; }
+        public DateTime dateFinish { get; set; }
 
         public Task(String name, List<SubTask> subTask, List<Developer> developers, DateTime dateFinish)
         {

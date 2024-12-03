@@ -40,7 +40,8 @@
             this.buttonCreateSubTask = new System.Windows.Forms.Button();
             this.buttonDeletteSubTask = new System.Windows.Forms.Button();
             this.buttonCreateTask = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTask = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelNameTask
@@ -49,7 +50,7 @@
             this.labelNameTask.BackColor = System.Drawing.Color.Transparent;
             this.labelNameTask.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold);
             this.labelNameTask.ForeColor = System.Drawing.Color.Transparent;
-            this.labelNameTask.Location = new System.Drawing.Point(260, 237);
+            this.labelNameTask.Location = new System.Drawing.Point(259, 206);
             this.labelNameTask.Name = "labelNameTask";
             this.labelNameTask.Size = new System.Drawing.Size(341, 47);
             this.labelNameTask.TabIndex = 0;
@@ -62,7 +63,7 @@
             this.textBoxNameTask.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxNameTask.Font = new System.Drawing.Font("Myanmar Text", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNameTask.ForeColor = System.Drawing.Color.Black;
-            this.textBoxNameTask.Location = new System.Drawing.Point(687, 228);
+            this.textBoxNameTask.Location = new System.Drawing.Point(684, 196);
             this.textBoxNameTask.Name = "textBoxNameTask";
             this.textBoxNameTask.Size = new System.Drawing.Size(726, 66);
             this.textBoxNameTask.TabIndex = 14;
@@ -74,7 +75,7 @@
             this.textBoxNameSubTask.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxNameSubTask.Font = new System.Drawing.Font("Myanmar Text", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNameSubTask.ForeColor = System.Drawing.Color.Black;
-            this.textBoxNameSubTask.Location = new System.Drawing.Point(986, 776);
+            this.textBoxNameSubTask.Location = new System.Drawing.Point(989, 825);
             this.textBoxNameSubTask.Name = "textBoxNameSubTask";
             this.textBoxNameSubTask.Size = new System.Drawing.Size(357, 66);
             this.textBoxNameSubTask.TabIndex = 15;
@@ -85,7 +86,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(260, 391);
+            this.label1.Location = new System.Drawing.Point(260, 438);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(347, 40);
             this.label1.TabIndex = 16;
@@ -98,7 +99,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(698, 385);
+            this.label2.Location = new System.Drawing.Point(698, 431);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(315, 47);
             this.label2.TabIndex = 17;
@@ -110,7 +111,7 @@
             this.listBoxDevProyect.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxDevProyect.FormattingEnabled = true;
             this.listBoxDevProyect.ItemHeight = 37;
-            this.listBoxDevProyect.Location = new System.Drawing.Point(268, 441);
+            this.listBoxDevProyect.Location = new System.Drawing.Point(267, 494);
             this.listBoxDevProyect.Name = "listBoxDevProyect";
             this.listBoxDevProyect.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxDevProyect.Size = new System.Drawing.Size(317, 263);
@@ -121,7 +122,7 @@
             this.listBoxSubTasks.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxSubTasks.FormattingEnabled = true;
             this.listBoxSubTasks.ItemHeight = 37;
-            this.listBoxSubTasks.Location = new System.Drawing.Point(707, 441);
+            this.listBoxSubTasks.Location = new System.Drawing.Point(706, 494);
             this.listBoxSubTasks.Name = "listBoxSubTasks";
             this.listBoxSubTasks.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxSubTasks.Size = new System.Drawing.Size(1004, 263);
@@ -134,7 +135,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(680, 786);
+            this.label3.Location = new System.Drawing.Point(680, 835);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(259, 40);
             this.label3.TabIndex = 23;
@@ -147,7 +148,7 @@
             this.buttonSaveDevs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveDevs.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSaveDevs.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonSaveDevs.Location = new System.Drawing.Point(324, 774);
+            this.buttonSaveDevs.Location = new System.Drawing.Point(301, 822);
             this.buttonSaveDevs.Name = "buttonSaveDevs";
             this.buttonSaveDevs.Size = new System.Drawing.Size(232, 68);
             this.buttonSaveDevs.TabIndex = 24;
@@ -162,7 +163,7 @@
             this.buttonCreateSubTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateSubTask.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateSubTask.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonCreateSubTask.Location = new System.Drawing.Point(1428, 774);
+            this.buttonCreateSubTask.Location = new System.Drawing.Point(1427, 826);
             this.buttonCreateSubTask.Name = "buttonCreateSubTask";
             this.buttonCreateSubTask.Size = new System.Drawing.Size(156, 65);
             this.buttonCreateSubTask.TabIndex = 25;
@@ -177,7 +178,7 @@
             this.buttonDeletteSubTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDeletteSubTask.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeletteSubTask.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonDeletteSubTask.Location = new System.Drawing.Point(1599, 774);
+            this.buttonDeletteSubTask.Location = new System.Drawing.Point(1600, 822);
             this.buttonDeletteSubTask.Name = "buttonDeletteSubTask";
             this.buttonDeletteSubTask.Size = new System.Drawing.Size(156, 65);
             this.buttonDeletteSubTask.TabIndex = 26;
@@ -192,28 +193,47 @@
             this.buttonCreateTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateTask.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateTask.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonCreateTask.Location = new System.Drawing.Point(651, 886);
+            this.buttonCreateTask.Location = new System.Drawing.Point(798, 939);
             this.buttonCreateTask.Name = "buttonCreateTask";
-            this.buttonCreateTask.Size = new System.Drawing.Size(598, 124);
+            this.buttonCreateTask.Size = new System.Drawing.Size(368, 77);
             this.buttonCreateTask.TabIndex = 27;
             this.buttonCreateTask.Text = "Crear tarea";
             this.buttonCreateTask.UseVisualStyleBackColor = true;
+            this.buttonCreateTask.Click += new System.EventHandler(this.buttonCreateTask_Click);
             // 
-            // dateTimePicker1
+            // dateTimePickerTask
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1555, 264);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 28;
+            this.dateTimePickerTask.CalendarForeColor = System.Drawing.Color.Transparent;
+            this.dateTimePickerTask.CalendarTitleForeColor = System.Drawing.Color.Transparent;
+            this.dateTimePickerTask.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.dateTimePickerTask.Font = new System.Drawing.Font("Segoe UI Light", 20.25F);
+            this.dateTimePickerTask.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerTask.Location = new System.Drawing.Point(684, 300);
+            this.dateTimePickerTask.Name = "dateTimePickerTask";
+            this.dateTimePickerTask.Size = new System.Drawing.Size(181, 43);
+            this.dateTimePickerTask.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(259, 297);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(219, 47);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Fecha limite";
             // 
             // CreateTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Gestor_de_Proyectos.Properties.Resources.wallpaperCreateTasks;
+            this.BackgroundImage = global::Gestor_de_Proyectos.Properties.Resources.wallpaperCreateTaskDef;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dateTimePickerTask);
             this.Controls.Add(this.buttonCreateTask);
             this.Controls.Add(this.buttonDeletteSubTask);
             this.Controls.Add(this.buttonCreateSubTask);
@@ -249,6 +269,7 @@
         private System.Windows.Forms.Button buttonCreateSubTask;
         private System.Windows.Forms.Button buttonDeletteSubTask;
         private System.Windows.Forms.Button buttonCreateTask;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTask;
+        private System.Windows.Forms.Label label4;
     }
 }
