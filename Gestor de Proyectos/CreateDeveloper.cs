@@ -12,14 +12,21 @@ namespace Gestor_de_Proyectos
 {
     public partial class CreateDeveloper : Form
     {
-        private List<Proyect> listPoroyects = null;
+        private List<Proyect> listProyects = null;
         private List<Developer> listDev = null;
-
-        public CreateDeveloper(List<Developer> listDev, List<Proyect> listPoroyects)
+        private int index;
+        public CreateDeveloper(List<Developer> listDev, List<Proyect> listProyects)
         {
             InitializeComponent();
             this.listDev = listDev;
-            this.listPoroyects = listPoroyects;
+            this.listProyects = listProyects;
+        }
+        public CreateDeveloper(List<Proyect> listProyects, int index)
+        {
+            InitializeComponent();
+            this.listDev = null;
+            this.listProyects = listProyects;
+            this.index = index;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -71,10 +78,22 @@ namespace Gestor_de_Proyectos
             }
             else
             {
-                listDev.Add(new Developer(textBoxNameDev.Text,textBoxSurnameDev.Text,textBoxEmail.Text,textBoxPasswordDev.Text));
-                CreateProyect2 f = new CreateProyect2(listPoroyects,listDev);
-                f.Show();
-                this.Hide();
+                
+                if (listDev == null)
+                {
+                    this.listProyects[this.index].addDeveloper(new Developer(textBoxNameDev.Text, textBoxSurnameDev.Text, textBoxEmail.Text, textBoxPasswordDev.Text));
+                    EditProyect f = new EditProyect(listProyects,index);
+                    f.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    listDev.Add(new Developer(textBoxNameDev.Text, textBoxSurnameDev.Text, textBoxEmail.Text, textBoxPasswordDev.Text));
+                    CreateProyect2 f = new CreateProyect2(listProyects, listDev);
+                    f.Show();
+                    this.Hide();
+                }
+                
             }
         }
 

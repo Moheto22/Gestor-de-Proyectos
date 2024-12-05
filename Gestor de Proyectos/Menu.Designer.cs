@@ -59,6 +59,7 @@
             this.buttonSearchProyect.Size = new System.Drawing.Size(350, 350);
             this.buttonSearchProyect.TabIndex = 1;
             this.buttonSearchProyect.UseVisualStyleBackColor = true;
+            this.buttonSearchProyect.Click += new System.EventHandler(this.buttonSearchProyect_Click);
             // 
             // buttonDeleteProyect
             // 
@@ -71,6 +72,7 @@
             this.buttonDeleteProyect.Size = new System.Drawing.Size(350, 350);
             this.buttonDeleteProyect.TabIndex = 2;
             this.buttonDeleteProyect.UseVisualStyleBackColor = true;
+            this.buttonDeleteProyect.Click += new System.EventHandler(this.buttonDeleteProyect_Click);
             // 
             // buttonOut
             // 

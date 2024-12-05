@@ -42,5 +42,17 @@ namespace Gestor_de_Proyectos
         {
 
         }
+
+        private void buttonSearchProyect_Click(object sender, EventArgs e)
+        {
+            SelectProyect p = new SelectProyect(listProyects);
+            p.Show();
+            this.Hide();
+        }
+
+        private void buttonDeleteProyect_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

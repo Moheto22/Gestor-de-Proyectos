@@ -23,18 +23,18 @@ namespace Gestor_de_Proyectos
             this.listProyects = listProyects;
             this.index = index;
             page = 0;
-            fillGridView(listProyects,index,page);
+            fillGridView();
 
         }
 
-        private void fillGridView(List<Proyect> listProyects, int index, int page)
+        private void fillGridView()
         {
-            Proyect proyect = listProyects[index];
-            List<Task> tasksToShow = takeTaskToShow(proyect,page);
+            Proyect proyect = this.listProyects[this.index];
+            List<Task> tasksToShow = takeTaskToShow(proyect,this.page);
             if (tasksToShow != null && tasksToShow.Count > 0)
             {
                 var datos = tasksToShow.Select(t => new
-                {
+                {   t.id,
                     t.name,
                     listDev = t.takeNameDevs(),
                     percentatge = t.getPercentatge() + "%",
@@ -42,7 +42,10 @@ namespace Gestor_de_Proyectos
                 }).ToList();
                 dataGridViewTask.DataSource = datos;
             }
-            
+            else if (proyect.tasks.Count == 0)
+            {
+                dataGridViewTask.DataSource = null;
+            }
             
         }
 
@@ -67,8 +70,9 @@ namespace Gestor_de_Proyectos
                     if (proyect.tasks[i].dateFinish != date)
                     {
                         actualPage++;
+                        date = proyect.tasks[i].dateFinish;
                     }
-                    if (actualPage == page)
+                    if (actualPage == this.page)
                     {
                         if (!firstTake)
                         {
@@ -76,18 +80,19 @@ namespace Gestor_de_Proyectos
                         }
                         tasks.Add(proyect.tasks[i]);
                     }
-                    else if (tasks.Count != 1)
+                    else if (tasks.Count > 0)
                     {
                         finish = true;
                     }
                     i++;
                 }
                 if (!finish && tasks.Count == 0) {
-                    MessageBox.Show("No hay tareas mas haya de la fecha actual", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No hay tareas mas haya de la fecha actual", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.page--;
                 }
                 else
                 {
-                   labelDate.Text = dateToShow.ToString();
+                   labelDate.Text = dateToShow.ToShortDateString();
                 }
             }
             return tasks;
@@ -108,6 +113,114 @@ namespace Gestor_de_Proyectos
             CreateTask createTask = new CreateTask(listProyects,index);
             this.Hide();
             createTask.Show();
+        }
+
+        private void buttonPreviousDay_Click(object sender, EventArgs e)
+        {
+            if(page == 0)
+            {
+                MessageBox.Show("No hay tareas anteriores a la fecha actual", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }else
+            {
+                this.page--;
+                fillGridView();
+            }
+        }
+
+        private void buttonNextDay_Click(object sender, EventArgs e)
+        {
+            this.page++;
+            fillGridView();
+        }
+
+        private void buttonEditTask_Click(object sender, EventArgs e)
+        {
+            List<DataGridViewRow> listRowSelected =dataGridViewTask.SelectedRows.Cast<DataGridViewRow>().ToList();
+            if(listRowSelected.Count > 1)
+            {
+                MessageBox.Show("No se puede seleccionar mas de una fila al mismo tiempo para editar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }else if (listRowSelected.Count == 0)
+            {
+                MessageBox.Show("Debes de seleccionar una fila para editar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                int id = (int)listRowSelected[0].Cells[0].Value;
+                Task task = takeTaskById(id);
+                CreateTask create = new CreateTask(listProyects, index, task);
+                create.Show();
+                this.Hide();
+            }
+        }
+        private Task takeTaskById(int id)
+        {
+            List<Task> list = this.listProyects[this.index].tasks;
+            bool finish = false;
+            int i = 0;
+            while (i < list.Count && !finish) { 
+                if(list[i].id == id) { 
+                    finish = true;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            return list[i];
+        }
+
+        private void buttonAddDev_Click(object sender, EventArgs e)
+        {
+            CreateDeveloper c =new CreateDeveloper(this.listProyects,this.index);
+            c.Show();
+            this.Hide();
+        }
+
+        private void buttonDeleteTask_Click(object sender, EventArgs e)
+        {
+            List<DataGridViewRow> listRowSelected = dataGridViewTask.SelectedRows.Cast<DataGridViewRow>().ToList();
+            if (listRowSelected.Count <= 0 )
+            {
+                MessageBox.Show("Debes de seleccionar una minimo una fila para eliminarla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                List<int> listIds = new List<int>();
+                foreach (DataGridViewRow row in listRowSelected)
+                {
+                    listIds.Add((int)row.Cells[0].Value);
+                }
+                List<Task> tasks = getTaskById(listIds);
+                foreach (Task task in tasks) {
+                    this.listProyects[index].tasks.Remove(task);
+                }
+                fillGridView();
+            }   
+        }
+        private List<Task> getTaskById(List<int> listIds)
+        {
+            List<Task> tasks = new List<Task>();
+            int i = 0;
+            int j = 0;
+            while (tasks.Count != listIds.Count) {
+                if (this.listProyects[this.index].tasks[i].id == listIds[j])
+                {
+                    tasks.Add(this.listProyects[this.index].tasks[i]);
+                    j++;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            return tasks;
+        }
+
+        private void buttonOut_Click(object sender, EventArgs e)
+        {
+            Menu m = new Menu(listProyects);
+            m.Show();
+            this.Close();
         }
     }
 }

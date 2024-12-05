@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Gestor_de_Proyectos
     public class Proyect
     {
         private static int total = 0;
-        private int id { get; set; }
+        public int id { get; set; }
         private string name { get; set; }
         public List<Developer> developers { get; set; }
         public List<Task> tasks { get; set; }
@@ -33,10 +34,19 @@ namespace Gestor_de_Proyectos
         public void addTask(Task task)
         {
             tasks.Add(task);
+            order();
         }
         public void removeTask(Task task)
         {
             tasks.Remove(task);
+        }
+        public void order()
+        {
+            this.tasks = this.tasks.OrderBy(t => t.dateFinish).ToList();
+        }
+        public override string ToString()
+        {
+            return $"{name}";
         }
     }
 }

@@ -26,8 +26,25 @@ namespace Gestor_de_Proyectos
             InitializeComponent();
             listBoxDevProyect.Items.Clear();
             listBoxDevProyect.DataSource = listProyects[index].developers;
-
+            buttonCreateTask.Text = "Crear tarea";
         }
+        public CreateTask(List<Proyect> listProyects, int index,Task task)
+        {
+            this.listProyects = listProyects;
+            this.index = index;
+            this.task = task;
+            this.listSubTasks = task.subTask;
+            this.listDevs = task.developers;
+            InitializeComponent();
+            listBoxDevProyect.Items.Clear();
+            listBoxDevProyect.DataSource = listProyects[index].developers;
+            listBoxSubTasks.Items.Clear();
+            listBoxSubTasks.DataSource = listSubTasks;
+            textBoxNameTask.Text = task.name;
+            dateTimePickerTask.Value = task.dateFinish;
+            buttonCreateTask.Text = "Guardar cambios";
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -102,12 +119,25 @@ namespace Gestor_de_Proyectos
             }
             if (valide)
             {
-                task = new Task(title,listSubTasks,listDevs,dateTimePickerTask.Value);
-                foreach (var dev in listDevs)
+                DateTime date = new DateTime(dateTimePickerTask.Value.Year, dateTimePickerTask.Value.Month, dateTimePickerTask.Value.Day);
+                string textButton = buttonCreateTask.Text;
+                if (textButton == "Guardar cambios")
                 {
-                    dev.addTask(task);
+                    task.name = textBoxNameTask.Text;
+                    task.subTask = listSubTasks;
+                    task.developers = listDevs;
+                    task.dateFinish = date;
+                    this.listProyects[this.index].order();
                 }
-                listProyects[index].addTask(task);
+                else
+                {
+                    task = new Task(title, listSubTasks, listDevs, date);
+                    foreach (var dev in listDevs)
+                    {
+                        dev.addTask(task);
+                    }
+                    listProyects[index].addTask(task);
+                }
                 EditProyect f = new EditProyect(listProyects,index);
                 f.Show();
                 this.Hide();

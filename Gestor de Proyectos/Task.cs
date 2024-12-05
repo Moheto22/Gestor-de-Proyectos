@@ -9,11 +9,11 @@ namespace Gestor_de_Proyectos
     public class Task
     {
         private static int total = 0;
-        private int id { get; set; }
+        public int id { get; set; }
         public String name { get; set; }
-        private List<SubTask> subTask { get; set; }
+        public List<SubTask> subTask { get; set; }
         public bool finish { get; set; }
-        private List<Developer> developers { get; set; }
+        public List<Developer> developers { get; set; }
         public DateTime dateFinish { get; set; }
 
         public Task(String name, List<SubTask> subTask, List<Developer> developers, DateTime dateFinish)

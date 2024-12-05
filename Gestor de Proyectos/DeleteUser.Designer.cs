@@ -44,6 +44,7 @@
             this.listBoxDevData.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxDevData.Size = new System.Drawing.Size(541, 374);
             this.listBoxDevData.TabIndex = 0;
+            this.listBoxDevData.SelectedIndexChanged += new System.EventHandler(this.listBoxDevData_SelectedIndexChanged);
             // 
             // buttonBack
             // 

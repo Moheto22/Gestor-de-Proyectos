@@ -40,5 +40,10 @@ namespace Gestor_de_Proyectos
             listBoxDevData.DataSource = null;
             listBoxDevData.DataSource=listDev;
         }
+
+        private void listBoxDevData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewTask = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.devs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Porcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAddTask = new System.Windows.Forms.Button();
             this.buttonPreviousDay = new System.Windows.Forms.Button();
             this.buttonNextDay = new System.Windows.Forms.Button();
@@ -37,18 +44,29 @@
             this.buttonDeleteTask = new System.Windows.Forms.Button();
             this.buttonOut = new System.Windows.Forms.Button();
             this.labelDate = new System.Windows.Forms.Label();
-            this.nameTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.devs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Porcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTask)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewTask
             // 
+            this.dataGridViewTask.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTask.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTask.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(96)))), ((int)(((byte)(134)))));
+            this.dataGridViewTask.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewTask.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
+            this.dataGridViewTask.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTask.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.nameTask,
             this.devs,
             this.Porcentaje,
@@ -56,8 +74,47 @@
             this.dataGridViewTask.Location = new System.Drawing.Point(709, 268);
             this.dataGridViewTask.Name = "dataGridViewTask";
             this.dataGridViewTask.ReadOnly = true;
+            this.dataGridViewTask.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTask.Size = new System.Drawing.Size(1029, 428);
             this.dataGridViewTask.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // nameTask
+            // 
+            this.nameTask.DataPropertyName = "name";
+            this.nameTask.HeaderText = "Nombre de la Tarea";
+            this.nameTask.Name = "nameTask";
+            this.nameTask.ReadOnly = true;
+            this.nameTask.Width = 300;
+            // 
+            // devs
+            // 
+            this.devs.DataPropertyName = "listDev";
+            this.devs.HeaderText = "Lista de Desarrolladores";
+            this.devs.Name = "devs";
+            this.devs.ReadOnly = true;
+            this.devs.Width = 435;
+            // 
+            // Porcentaje
+            // 
+            this.Porcentaje.DataPropertyName = "percentatge";
+            this.Porcentaje.HeaderText = "Porcentaje";
+            this.Porcentaje.Name = "Porcentaje";
+            this.Porcentaje.ReadOnly = true;
+            // 
+            // finish
+            // 
+            this.finish.DataPropertyName = "finish";
+            this.finish.HeaderText = "Acabado";
+            this.finish.Name = "finish";
+            this.finish.ReadOnly = true;
             // 
             // buttonAddTask
             // 
@@ -85,8 +142,9 @@
             this.buttonPreviousDay.Name = "buttonPreviousDay";
             this.buttonPreviousDay.Size = new System.Drawing.Size(412, 121);
             this.buttonPreviousDay.TabIndex = 6;
-            this.buttonPreviousDay.Text = "Dia posterior";
+            this.buttonPreviousDay.Text = "Dia anterior";
             this.buttonPreviousDay.UseVisualStyleBackColor = true;
+            this.buttonPreviousDay.Click += new System.EventHandler(this.buttonPreviousDay_Click);
             // 
             // buttonNextDay
             // 
@@ -99,8 +157,9 @@
             this.buttonNextDay.Name = "buttonNextDay";
             this.buttonNextDay.Size = new System.Drawing.Size(412, 121);
             this.buttonNextDay.TabIndex = 7;
-            this.buttonNextDay.Text = "Dia anterior";
+            this.buttonNextDay.Text = "Dia posterior";
             this.buttonNextDay.UseVisualStyleBackColor = true;
+            this.buttonNextDay.Click += new System.EventHandler(this.buttonNextDay_Click);
             // 
             // buttonEditTask
             // 
@@ -115,6 +174,7 @@
             this.buttonEditTask.TabIndex = 8;
             this.buttonEditTask.Text = "Editar tarea";
             this.buttonEditTask.UseVisualStyleBackColor = true;
+            this.buttonEditTask.Click += new System.EventHandler(this.buttonEditTask_Click);
             // 
             // buttonAddDev
             // 
@@ -129,6 +189,7 @@
             this.buttonAddDev.TabIndex = 9;
             this.buttonAddDev.Text = "Agregar desarrollador";
             this.buttonAddDev.UseVisualStyleBackColor = true;
+            this.buttonAddDev.Click += new System.EventHandler(this.buttonAddDev_Click);
             // 
             // buttonDeleteTask
             // 
@@ -143,6 +204,7 @@
             this.buttonDeleteTask.TabIndex = 10;
             this.buttonDeleteTask.Text = "Eliminar tarea";
             this.buttonDeleteTask.UseVisualStyleBackColor = true;
+            this.buttonDeleteTask.Click += new System.EventHandler(this.buttonDeleteTask_Click);
             // 
             // buttonOut
             // 
@@ -157,6 +219,7 @@
             this.buttonOut.TabIndex = 11;
             this.buttonOut.Text = "Salir";
             this.buttonOut.UseVisualStyleBackColor = true;
+            this.buttonOut.Click += new System.EventHandler(this.buttonOut_Click);
             // 
             // labelDate
             // 
@@ -164,42 +227,12 @@
             this.labelDate.BackColor = System.Drawing.Color.Transparent;
             this.labelDate.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.Color.White;
-            this.labelDate.Location = new System.Drawing.Point(1153, 812);
+            this.labelDate.Location = new System.Drawing.Point(1137, 812);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(164, 47);
+            this.labelDate.Size = new System.Drawing.Size(192, 47);
             this.labelDate.TabIndex = 12;
-            this.labelDate.Text = "--/--/----";
+            this.labelDate.Text = "000/00/00";
             this.labelDate.Click += new System.EventHandler(this.labelDate_Click);
-            // 
-            // nameTask
-            // 
-            this.nameTask.DataPropertyName = "name";
-            this.nameTask.HeaderText = "Nombre de la Tarea";
-            this.nameTask.Name = "nameTask";
-            this.nameTask.ReadOnly = true;
-            this.nameTask.Width = 300;
-            // 
-            // devs
-            // 
-            this.devs.DataPropertyName = "listDev";
-            this.devs.HeaderText = "Lista de Desarrolladores";
-            this.devs.Name = "devs";
-            this.devs.ReadOnly = true;
-            this.devs.Width = 485;
-            // 
-            // Porcentaje
-            // 
-            this.Porcentaje.DataPropertyName = "percentatge";
-            this.Porcentaje.HeaderText = "Porcentaje";
-            this.Porcentaje.Name = "Porcentaje";
-            this.Porcentaje.ReadOnly = true;
-            // 
-            // finish
-            // 
-            this.finish.DataPropertyName = "finish";
-            this.finish.HeaderText = "Acabado";
-            this.finish.Name = "finish";
-            this.finish.ReadOnly = true;
             // 
             // EditProyect
             // 
@@ -239,6 +272,7 @@
         private System.Windows.Forms.Button buttonDeleteTask;
         private System.Windows.Forms.Button buttonOut;
         private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameTask;
         private System.Windows.Forms.DataGridViewTextBoxColumn devs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Porcentaje;
