@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 namespace Gestor_de_Proyectos
 {
     public class Task
-    {
+    {   
         private static int total = 0;
+        private List<int> idDevelopers = new List<int>();
         public int id { get; set; }
         public String name { get; set; }
         public List<SubTask> subTask { get; set; }
@@ -29,10 +30,12 @@ namespace Gestor_de_Proyectos
         public void addDeveloper(Developer developer)
         {
             this.developers.Add(developer);
+            this.idDevelopers.Add(developer.id);
         }
         public void removeDeveloper(Developer developer)
         {
             this.developers.Remove(developer);
+            this.idDevelopers.Remove(developer.id);
         }
         public void addSubTask(SubTask subTask)
         {
@@ -84,6 +87,16 @@ namespace Gestor_de_Proyectos
                 }
             }
             return total;
+        }
+        public void changeAllDevs(List<Developer>devs)
+        {
+            this.developers.Clear();
+            this.idDevelopers.Clear();
+            foreach (var dev in devs)
+            {
+                this.developers.Add(dev);
+                this.idDevelopers.Add(dev.id);
+            }
         }
     }
 }

@@ -90,6 +90,7 @@
             this.Name = "DeleteUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.DeleteUser_Load);
             this.ResumeLayout(false);
 
         }

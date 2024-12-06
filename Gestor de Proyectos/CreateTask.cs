@@ -123,19 +123,17 @@ namespace Gestor_de_Proyectos
                 string textButton = buttonCreateTask.Text;
                 if (textButton == "Guardar cambios")
                 {
+                    this.listProyects[index].removeTask(task);
                     task.name = textBoxNameTask.Text;
                     task.subTask = listSubTasks;
-                    task.developers = listDevs;
+                    task.changeAllDevs(listDevs);
                     task.dateFinish = date;
+                    this.listProyects[index].addTask(task);
                     this.listProyects[this.index].order();
                 }
                 else
                 {
                     task = new Task(title, listSubTasks, listDevs, date);
-                    foreach (var dev in listDevs)
-                    {
-                        dev.addTask(task);
-                    }
                     listProyects[index].addTask(task);
                 }
                 EditProyect f = new EditProyect(listProyects,index);

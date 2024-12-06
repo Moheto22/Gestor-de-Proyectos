@@ -81,14 +81,14 @@ namespace Gestor_de_Proyectos
                 
                 if (listDev == null)
                 {
-                    this.listProyects[this.index].addDeveloper(new Developer(textBoxNameDev.Text, textBoxSurnameDev.Text, textBoxEmail.Text, textBoxPasswordDev.Text));
+                    this.listProyects[this.index].addDeveloper(new Developer(textBoxNameDev.Text, textBoxSurnameDev.Text, textBoxEmail.Text, textBoxPasswordDev.Text, this.listProyects[this.index]));
                     EditProyect f = new EditProyect(listProyects,index);
                     f.Show();
                     this.Hide();
                 }
                 else
                 {
-                    listDev.Add(new Developer(textBoxNameDev.Text, textBoxSurnameDev.Text, textBoxEmail.Text, textBoxPasswordDev.Text));
+                    listDev.Add(new Developer(textBoxNameDev.Text, textBoxSurnameDev.Text, textBoxEmail.Text, textBoxPasswordDev.Text, this.listProyects[this.index]));
                     CreateProyect2 f = new CreateProyect2(listProyects, listDev);
                     f.Show();
                     this.Hide();

@@ -192,7 +192,7 @@ namespace Gestor_de_Proyectos
                 }
                 List<Task> tasks = getTaskById(listIds);
                 foreach (Task task in tasks) {
-                    this.listProyects[index].tasks.Remove(task);
+                    this.listProyects[index].removeTask(task);
                 }
                 fillGridView();
             }   
@@ -220,7 +220,7 @@ namespace Gestor_de_Proyectos
         {
             Menu m = new Menu(listProyects);
             m.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

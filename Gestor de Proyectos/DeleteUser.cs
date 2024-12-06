@@ -45,5 +45,10 @@ namespace Gestor_de_Proyectos
         {
 
         }
+
+        private void DeleteUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
