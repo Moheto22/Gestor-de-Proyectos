@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,14 @@ namespace Gestor_de_Proyectos
             this.id = SubTask.total;
             this.state = "new";
         }
-        public override string ToString()
+        [JsonConstructor]
+        public SubTask(int id,string name,string state)
+        {
+            this.state=state;
+            this.id = id;
+            this.name = name;
+        }
+    public override string ToString()
         {
             return $"{name}";
         }

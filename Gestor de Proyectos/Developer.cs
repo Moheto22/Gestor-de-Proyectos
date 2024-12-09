@@ -20,9 +20,9 @@ namespace Gestor_de_Proyectos
         public String email { get; set; }
         public int idProyect;
         [JsonIgnore]
-        private List<Task> tasks { get; set; }
+        public List<Task> tasks { get; set; }
         [JsonIgnore]
-        private Proyect proyect { get; set; }
+        public Proyect proyect { get; set; }
 
         public Developer(String name, String surname, String email,String password,Proyect proyect) {
             this.name = name;
@@ -35,7 +35,19 @@ namespace Gestor_de_Proyectos
             this.proyect = proyect;
             this.idProyect = proyect.id;
         }
-        public void addTask(Task task)
+        [JsonConstructor]
+        public Developer(List<int> idTask ,int idProyect,int id, String name, String surname, String password,  String email)
+        {
+            this.idTask = idTask;
+            this.idProyect= idProyect;
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+            this.email = email;
+            this.tasks = new List<Task>();
+        }
+       
+    public void addTask(Task task)
         {
             tasks.Add(task);
             this.idTask.Add(task.id);

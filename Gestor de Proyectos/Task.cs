@@ -28,6 +28,22 @@ namespace Gestor_de_Proyectos
             Task.total++;
             this.id = Task.total;
             this.dateFinish = dateFinish;
+            foreach (Developer devs in this.developers)
+            {
+                devs.addTask(this);
+                idDevelopers.Add(devs.id);
+            }
+        }
+        [JsonConstructor]
+        public Task(List<int> idDevelopers, int id,String name, List<SubTask> subTask, bool finish, DateTime dateFinish)
+        {
+            this.name = name;
+            this.subTask = subTask;
+            this.finish = finish;
+            this.id = id;
+            this.dateFinish =dateFinish;
+            this.developers = new List<Developer>();
+
         }
         public void addDeveloper(Developer developer)
         {

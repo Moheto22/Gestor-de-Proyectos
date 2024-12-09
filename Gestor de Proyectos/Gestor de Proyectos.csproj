@@ -155,6 +155,7 @@
     <EmbeddedResource Include="SelectProyect.resx">
       <DependentUpon>SelectProyect.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="data\developers.json" />
     <None Include="data\proyects.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

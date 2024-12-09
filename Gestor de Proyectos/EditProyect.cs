@@ -220,12 +220,26 @@ namespace Gestor_de_Proyectos
 
         private void buttonOut_Click(object sender, EventArgs e)
         {
-            JArray arrayText = (JArray)JToken.FromObject(listProyects);
-            File.WriteAllText(@"..\..\data\proyects.json", arrayText.ToString());
-
+            JArray arrayProyect = (JArray)JToken.FromObject(listProyects);
+            File.WriteAllText(@"..\..\data\proyects.json", arrayProyect.ToString());
+            JArray arrayDevs = (JArray)JToken.FromObject(getDevs());
+            File.WriteAllText(@"..\..\data\developers.json", arrayDevs.ToString());
             Menu m = new Menu(listProyects);
             m.Show();
             this.Hide();
+        }
+
+        private List<Developer> getDevs()
+        {   
+            List<Developer>listDevs = new List<Developer>();
+            foreach(Proyect proyect in listProyects)
+            {
+                for (int i = 0; i < proyect.developers.Count; i++)
+                {
+                    listDevs.Add(proyect.developers[i]);
+                }
+            }
+            return listDevs;
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +16,66 @@ namespace Gestor_de_Proyectos
     {
         private List<Proyect> listProyects;
 
-        public Menu()
-        {
-            this.listProyects = new List<Proyect>();
+        public Menu(){
+            JArray array = JArray.Parse(File.ReadAllText(@"..\..\data\proyects.json"));
+            List<Proyect> listProyectsIDs = array.ToObject<List<Proyect>>();
+
+            array = JArray.Parse(File.ReadAllText(@"..\..\data\developers.json"));
+            List<Developer> listDevelopersIDs = array.ToObject<List<Developer>>();
+
+            this.listProyects = generateFinalListProyects(listDevelopersIDs, listProyectsIDs);
+            
             InitializeComponent();
         }
+
+        private List<Proyect> generateFinalListProyects(List<Developer> listDevelopersIDs, List<Proyect> listProyectsIDs){
+            List<Developer> listDevs;
+            foreach (Proyect proyect in listProyectsIDs)
+            {
+                listDevs = getDevsById(proyect,listDevelopersIDs);
+                foreach (Developer dev in listDevs)
+                {
+                    dev.proyect = proyect;
+                    addTaskToDev(dev, proyect.tasks);
+                    proyect.developers.Add(dev);
+                }
+            }
+            return listProyectsIDs;
+        }
+
+        private List<Developer> getDevsById(Proyect proyect, List<Developer> listDevelopers)
+        {
+            List<Developer> listDevs = new List<Developer>();
+            int i = 0;
+            int j = 0;
+            while (j<proyect.idDevs.Count && i<listDevelopers.Count)
+            {
+                if (proyect.idDevs.Contains(listDevelopers[i].id))
+                {
+                    listDevs.Add(listDevelopers[i]);
+                    i++;
+                    j++;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            return listDevs;
+        }
+
+        private void addTaskToDev(Developer dev, List<Task> tasks)
+        {
+            foreach(Task task in tasks)
+            {
+                if (task.idDevelopers.Contains(dev.id))
+                {
+                    dev.tasks.Add(task);
+                    task.developers.Add(dev);
+                }
+            }
+        }
+
         public Menu(List<Proyect> listProyects)
         {
             this.listProyects = listProyects;

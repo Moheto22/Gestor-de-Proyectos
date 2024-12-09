@@ -5,16 +5,35 @@
       2
     ],
     "id": 1,
-    "name": "Proyecto",
+    "name": "awawdawd",
     "tasks": [
       {
-        "idDevelopers": [],
+        "idDevelopers": [
+          2
+        ],
+        "id": 3,
+        "name": "adas",
+        "subTask": [
+          {
+            "id": 3,
+            "name": "awdawd aw f a ",
+            "state": "new"
+          }
+        ],
+        "finish": false,
+        "dateFinish": "2024-12-07T00:00:00"
+      },
+      {
+        "idDevelopers": [
+          1,
+          2
+        ],
         "id": 1,
-        "name": "Hacer que funcione",
+        "name": "awdawd",
         "subTask": [
           {
             "id": 1,
-            "name": "awdawddaw",
+            "name": "awdawd",
             "state": "new"
           }
         ],
@@ -22,18 +41,20 @@
         "dateFinish": "2024-12-09T00:00:00"
       },
       {
-        "idDevelopers": [],
+        "idDevelopers": [
+          2
+        ],
         "id": 2,
-        "name": "CARACOLASO",
+        "name": "awdawd",
         "subTask": [
           {
             "id": 2,
-            "name": "jugar a futbol",
+            "name": "awdawdaw",
             "state": "new"
           }
         ],
         "finish": false,
-        "dateFinish": "2024-12-11T00:00:00"
+        "dateFinish": "2024-12-09T00:00:00"
       }
     ]
   }

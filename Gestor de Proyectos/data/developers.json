@@ -1,0 +1,26 @@
+[
+  {
+    "idTask": [
+      1
+    ],
+    "idProyect": 1,
+    "id": 1,
+    "name": "adawd",
+    "surname": "awdawdawd",
+    "password": "awd",
+    "email": "awdawdawd"
+  },
+  {
+    "idTask": [
+      1,
+      2,
+      3
+    ],
+    "idProyect": 1,
+    "id": 2,
+    "name": "wdaawd",
+    "surname": "awdawd",
+    "password": "wdaawd",
+    "email": "awdawd"
+  }
+]

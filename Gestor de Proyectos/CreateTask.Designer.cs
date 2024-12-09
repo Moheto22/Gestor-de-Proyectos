@@ -208,9 +208,9 @@
             this.dateTimePickerTask.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
             this.dateTimePickerTask.Font = new System.Drawing.Font("Segoe UI Light", 20.25F);
             this.dateTimePickerTask.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTask.Location = new System.Drawing.Point(684, 300);
+            this.dateTimePickerTask.Location = new System.Drawing.Point(666, 301);
             this.dateTimePickerTask.Name = "dateTimePickerTask";
-            this.dateTimePickerTask.Size = new System.Drawing.Size(181, 43);
+            this.dateTimePickerTask.Size = new System.Drawing.Size(206, 43);
             this.dateTimePickerTask.TabIndex = 28;
             // 
             // label4

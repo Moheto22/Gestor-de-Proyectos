@@ -18,13 +18,21 @@ namespace Gestor_de_Proyectos
         public List<Task> tasks { get; set; }
         [JsonIgnore]
         public List<Developer> developers { get; set; }
-        public Proyect( string name)
+        public Proyect(string name)
         {
             this.name = name;
             this.developers = new List<Developer>();
             this.tasks = new List<Task>();
             Proyect.total++;
             this.id = Proyect.total;
+        }
+        [JsonConstructor]
+        public Proyect(List<int>idDevs,int id,string name,List<Task> tasks)
+        {
+            this.name=name;
+            this.idDevs = idDevs;
+            this.id = id;
+            this.tasks = tasks;
         }
         public void addDeveloper(Developer developer)
         {
@@ -39,10 +47,6 @@ namespace Gestor_de_Proyectos
         public void addTask(Task task)
         {
             tasks.Add(task);
-            foreach (Developer dev in this.developers)
-            {
-                dev.addTask(task);
-            }
             order();
         }
         public void removeTask(Task task)
