@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -218,6 +220,9 @@ namespace Gestor_de_Proyectos
 
         private void buttonOut_Click(object sender, EventArgs e)
         {
+            JArray arrayText = (JArray)JToken.FromObject(listProyects);
+            File.WriteAllText(@"..\..\data\proyects.json", arrayText.ToString());
+
             Menu m = new Menu(listProyects);
             m.Show();
             this.Hide();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,14 @@ namespace Gestor_de_Proyectos
     public class Task
     {   
         private static int total = 0;
-        private List<int> idDevelopers = new List<int>();
+        public List<int> idDevelopers = new List<int>();
         public int id { get; set; }
         public String name { get; set; }
         public List<SubTask> subTask { get; set; }
         public bool finish { get; set; }
-        public List<Developer> developers { get; set; }
         public DateTime dateFinish { get; set; }
+        [JsonIgnore]
+        public List<Developer> developers { get; set; }
 
         public Task(String name, List<SubTask> subTask, List<Developer> developers, DateTime dateFinish)
         {

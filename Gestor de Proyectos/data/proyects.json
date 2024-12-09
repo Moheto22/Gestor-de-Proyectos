@@ -1,0 +1,40 @@
+[
+  {
+    "idDevs": [
+      1,
+      2
+    ],
+    "id": 1,
+    "name": "Proyecto",
+    "tasks": [
+      {
+        "idDevelopers": [],
+        "id": 1,
+        "name": "Hacer que funcione",
+        "subTask": [
+          {
+            "id": 1,
+            "name": "awdawddaw",
+            "state": "new"
+          }
+        ],
+        "finish": false,
+        "dateFinish": "2024-12-09T00:00:00"
+      },
+      {
+        "idDevelopers": [],
+        "id": 2,
+        "name": "CARACOLASO",
+        "subTask": [
+          {
+            "id": 2,
+            "name": "jugar a futbol",
+            "state": "new"
+          }
+        ],
+        "finish": false,
+        "dateFinish": "2024-12-11T00:00:00"
+      }
+    ]
+  }
+]

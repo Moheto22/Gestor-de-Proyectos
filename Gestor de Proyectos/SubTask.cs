@@ -9,8 +9,8 @@ namespace Gestor_de_Proyectos
     public class SubTask
     {
         private static int total = 0;
-        private int id { get; set; }
-        private string name { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
         public String state { get; set; }
         public SubTask ( string name)
         {

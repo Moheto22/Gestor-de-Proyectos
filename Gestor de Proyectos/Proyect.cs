@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,11 +12,12 @@ namespace Gestor_de_Proyectos
     public class Proyect
     {
         private static int total = 0;
-        private List<int> idDevs = new List<int>();
+        public List<int> idDevs = new List<int>();
         public int id { get; set; }
-        private string name { get; set; }
-        public List<Developer> developers { get; set; }
+        public string name { get; set; }
         public List<Task> tasks { get; set; }
+        [JsonIgnore]
+        public List<Developer> developers { get; set; }
         public Proyect( string name)
         {
             this.name = name;
@@ -28,7 +30,6 @@ namespace Gestor_de_Proyectos
         {
             this.developers.Add(developer);
             this.idDevs.Add(developer.id);
-            this.developers.
         }
         public void removeDeveloper(Developer developer)
         {

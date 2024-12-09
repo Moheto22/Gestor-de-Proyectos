@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -12,14 +13,16 @@ namespace Gestor_de_Proyectos
     {
         private static int total = 0;
         public int id { get; set; }
-        private List<int> idTask = new List<int>();
-        private String name { get; set; }
-        private String surname { get; set; }
-        private String password { get; set; }
-        private String email { get; set; }
+        public List<int> idTask = new List<int>();
+        public String name { get; set; }
+        public String surname { get; set; }
+        public String password { get; set; }
+        public String email { get; set; }
+        public int idProyect;
+        [JsonIgnore]
         private List<Task> tasks { get; set; }
+        [JsonIgnore]
         private Proyect proyect { get; set; }
-        private int idProyect;
 
         public Developer(String name, String surname, String email,String password,Proyect proyect) {
             this.name = name;
