@@ -22,7 +22,10 @@ namespace Gestor_de_Proyectos
 
             array = JArray.Parse(File.ReadAllText(@"..\..\data\developers.json"));
             List<Developer> listDevelopersIDs = array.ToObject<List<Developer>>();
-
+            Proyect.updateIDS(listProyectsIDs);
+            Developer.updateIDS(listDevelopersIDs);
+            Task.updateIDS(listProyectsIDs);
+            SubTask.updateIDS(listProyectsIDs);
             this.listProyects = generateFinalListProyects(listDevelopersIDs, listProyectsIDs);
             
             InitializeComponent();

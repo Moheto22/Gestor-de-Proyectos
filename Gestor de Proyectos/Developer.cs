@@ -60,6 +60,17 @@ namespace Gestor_de_Proyectos
         {
             return $"{name} {surname}";
         }
-       
+        public static void updateIDS(List<Developer> list)
+        {
+            int max = 0;
+            foreach (Developer dev in list)
+            {
+                if (dev.id > max)
+                {
+                    max = dev.id;
+                }
+            }
+            total = max;
+        }
     }
 }

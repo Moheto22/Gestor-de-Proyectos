@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -109,13 +110,28 @@ namespace Gestor_de_Proyectos
         }
         public void changeAllDevs(List<Developer>devs)
         {
-            this.developers.Clear();
             this.idDevelopers.Clear();
-            foreach (var dev in devs)
+            for (int i = 0; i < devs.Count; i++)
             {
-                this.developers.Add(dev);
-                this.idDevelopers.Add(dev.id);
+                this.idDevelopers.Add(devs[i].id);
             }
+            this.developers = devs;
+        }
+        public static void updateIDS(List<Proyect> list)
+        {
+            int max = 0;
+            foreach (Proyect proyect in list)
+            {
+                for (int i = 0; i < proyect.tasks.Count ; i++)
+                {
+                    if (proyect.tasks[i].id > max)
+                    {
+                        max = proyect.tasks[i].id;
+                    }
+                }
+
+            }
+            total = max;
         }
     }
 }

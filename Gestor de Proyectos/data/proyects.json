@@ -2,17 +2,19 @@
   {
     "idDevs": [
       1,
-      2
+      2,
+      3
     ],
     "id": 1,
     "name": "awawdawd",
     "tasks": [
       {
         "idDevelopers": [
+          1,
           2
         ],
         "id": 3,
-        "name": "adas",
+        "name": "Culo grande",
         "subTask": [
           {
             "id": 3,
@@ -55,6 +57,22 @@
         ],
         "finish": false,
         "dateFinish": "2024-12-09T00:00:00"
+      },
+      {
+        "idDevelopers": [
+          3
+        ],
+        "id": 4,
+        "name": "awawdawd",
+        "subTask": [
+          {
+            "id": 4,
+            "name": "awf",
+            "state": "new"
+          }
+        ],
+        "finish": false,
+        "dateFinish": "2024-12-10T00:00:00"
       }
     ]
   }

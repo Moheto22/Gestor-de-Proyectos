@@ -7,20 +7,30 @@
     "id": 1,
     "name": "adawd",
     "surname": "awdawdawd",
-    "password": "awd",
+    "password": null,
     "email": "awdawdawd"
   },
   {
     "idTask": [
       1,
-      2,
-      3
+      2
     ],
     "idProyect": 1,
     "id": 2,
     "name": "wdaawd",
     "surname": "awdawd",
-    "password": "wdaawd",
+    "password": null,
+    "email": "awdawd"
+  },
+  {
+    "idTask": [
+      4
+    ],
+    "idProyect": 1,
+    "id": 3,
+    "name": "awdawawdawdawdad",
+    "surname": "awddaw",
+    "password": "awddaw",
     "email": "awdawd"
   }
 ]
