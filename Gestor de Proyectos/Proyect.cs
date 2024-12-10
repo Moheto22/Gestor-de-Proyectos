@@ -33,6 +33,7 @@ namespace Gestor_de_Proyectos
             this.idDevs = idDevs;
             this.id = id;
             this.tasks = tasks;
+            this.developers = new List<Developer>();
         }
         public void addDeveloper(Developer developer)
         {

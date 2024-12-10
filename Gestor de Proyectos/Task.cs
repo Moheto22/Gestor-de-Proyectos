@@ -37,6 +37,7 @@ namespace Gestor_de_Proyectos
         [JsonConstructor]
         public Task(List<int> idDevelopers, int id,String name, List<SubTask> subTask, bool finish, DateTime dateFinish)
         {
+            this.idDevelopers = idDevelopers;
             this.name = name;
             this.subTask = subTask;
             this.finish = finish;

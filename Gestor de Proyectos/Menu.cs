@@ -33,11 +33,11 @@ namespace Gestor_de_Proyectos
             foreach (Proyect proyect in listProyectsIDs)
             {
                 listDevs = getDevsById(proyect,listDevelopersIDs);
-                foreach (Developer dev in listDevs)
+                for (int i = 0; i < listDevs.Count; i++)
                 {
-                    dev.proyect = proyect;
-                    addTaskToDev(dev, proyect.tasks);
-                    proyect.developers.Add(dev);
+                    listDevs[i].proyect = proyect;
+                    addTaskToDev(listDevs[i], proyect.tasks);
+                    proyect.developers.Add(listDevs[i]);
                 }
             }
             return listProyectsIDs;
@@ -53,8 +53,8 @@ namespace Gestor_de_Proyectos
                 if (proyect.idDevs.Contains(listDevelopers[i].id))
                 {
                     listDevs.Add(listDevelopers[i]);
-                    i++;
                     j++;
+                    listDevelopers.Remove(listDevelopers[i]);
                 }
                 else
                 {
