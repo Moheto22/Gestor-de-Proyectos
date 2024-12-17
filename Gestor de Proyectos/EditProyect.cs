@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -227,6 +229,40 @@ namespace Gestor_de_Proyectos
             Menu m = new Menu(listProyects);
             m.Show();
             this.Hide();
+        }
+        public static void writeJsonProjects()
+        {
+            MessageBox.Show($"ESCRIBIENDO...");
+            try
+            {
+                // Aquí usamos AppDomain.CurrentDomain.BaseDirectory para obtener la raíz del proyecto
+                string rootPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\.."));
+                string jsonFolderPath = Path.Combine(rootPath, "Json");
+
+                // Verifica si la carpeta Json existe. Si no, la crea.
+                if (!Directory.Exists(jsonFolderPath))
+                {
+                    Directory.CreateDirectory(jsonFolderPath);
+                }
+
+                // Define la ruta donde se guardará el archivo
+                string filePath = Path.Combine(jsonFolderPath, "projects.json");
+
+                // Serializa el objeto Project.projects a JSON con una estructura legible
+                string jsonString = JsonSerializer.Serialize(Project.projects, new JsonSerializerOptions { WriteIndented = true });
+
+                // Encripta el JSON antes de guardarlo
+                string encryptedJson = EncryptString(jsonString);
+
+                // Escribe el JSON encriptado en el archivo
+                File.WriteAllText(filePath, encryptedJson);
+                MessageBox.Show($"ESCRITO");
+            }
+            catch (Exception ex)
+            {
+                // Muestra un mensaje de error en caso de fallar
+                MessageBox.Show($"Error al escribir el archivo: {ex.Message}");
+            }
         }
 
         private List<Developer> getDevs()
