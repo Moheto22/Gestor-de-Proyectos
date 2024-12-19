@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Gestor_de_Proyectos
 {
@@ -62,11 +64,24 @@ namespace Gestor_de_Proyectos
                 error = error + "No existe apellido del desarrollador.\n";
                 valide = false;
             }
+            if (valide)
+            {
+                if (nameExist(textBoxNameDev.Text,textBoxSurnameDev.Text))
+                {
+                    error = error + "Este nombre y apellidos ya existen.\n";
+                    valide = false;
+                }
+            }
             if (textBoxEmail.Text.Equals(""))
             {
                 error = error + "No existe correo electronico del desarrollador.\n";
                 valide = false;
+            }else if (existEmail(textBoxEmail.Text))
+            {
+                error = error + "El correo ya existe.\n";
+                valide = false;
             }
+            
             if (textBoxPasswordDev.Text.Equals(""))
             {
                 error = error + "No existe contraseña del desarrollador.\n";
@@ -95,6 +110,77 @@ namespace Gestor_de_Proyectos
                 }
                 
             }
+        }
+
+        private bool nameExist(string name, string surname)
+        {
+            bool exist = false;
+            int i = 0;
+            if (listDev != null)
+            {
+                while (!exist && i < listDev.Count)
+                {
+                    if (name == listDev[i].name && surname == listDev[i].surname)
+                    {
+                        exist = true;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+            }
+            else
+            {
+                while (!exist && i < listProyects[index].developers.Count)
+                {
+                    if (name == listProyects[index].developers[i].name && surname == listProyects[index].developers[i].surname)
+                    {
+                        exist = true;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+            }
+
+            return exist;
+        }
+
+        private bool existEmail(string email)
+        {
+            bool exist = false;
+            int i = 0;
+            if (listDev != null)
+            {
+                while (!exist && i < listDev.Count)
+                {
+                    if (email == listDev[i].email)
+                    {
+                        exist = true;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+            }
+            else {
+                while (!exist && i < listProyects[index].developers.Count)
+                {
+                    if (email == listProyects[index].developers[i].email)
+                    {
+                        exist = true;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+            }
+            
+            return exist;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

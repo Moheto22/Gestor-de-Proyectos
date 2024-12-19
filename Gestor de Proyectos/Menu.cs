@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,13 +17,19 @@ namespace Gestor_de_Proyectos
     public partial class Menu : Form
     {
         private List<Proyect> listProyects;
+        private static string Key = "1234567890123456";
+        private static string IV = "abcdefghijklmnop";
 
         public Menu(){
-            JArray array = JArray.Parse(File.ReadAllText(@"..\..\data\proyects.json"));
-            List<Proyect> listProyectsIDs = array.ToObject<List<Proyect>>();
+            string cryptedProyect = File.ReadAllText(@"..\..\data\proyects.json");
+            string decryptedProyect = decryptJson(cryptedProyect);
+            JArray array = new JArray(decryptedProyect);
+            List<Proyect> listProyectsIDs = JsonConvert.DeserializeObject<List<Proyect>>(decryptedProyect);
 
-            array = JArray.Parse(File.ReadAllText(@"..\..\data\developers.json"));
-            List<Developer> listDevelopersIDs = array.ToObject<List<Developer>>();
+            string cryptedDevelopers = File.ReadAllText(@"..\..\data\developers.json");
+            string decryptedDevelopers = decryptJson(cryptedDevelopers);
+            array = new JArray(decryptedDevelopers);
+            List<Developer> listDevelopersIDs = JsonConvert.DeserializeObject<List<Developer>>(decryptedDevelopers);
 
             this.listProyects = generateFinalListProyects(listDevelopersIDs, listProyectsIDs);
             
@@ -110,6 +118,21 @@ namespace Gestor_de_Proyectos
         private void buttonDeleteProyect_Click(object sender, EventArgs e)
         {
 
+        }
+        public static string decryptJson(string encryptedJson)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(Key);
+                aes.IV = Encoding.UTF8.GetBytes(IV);
+
+                var decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+                var encryptedBytes = Convert.FromBase64String(encryptedJson);
+
+                var decryptedBytes = decryptor.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
+
+                return Encoding.UTF8.GetString(decryptedBytes);
+            }
         }
     }
 }

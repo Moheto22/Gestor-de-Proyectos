@@ -43,9 +43,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Gestor_de_Proyectos.Properties.Resources.icono;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(683, 126);
+            this.pictureBox1.Location = new System.Drawing.Point(683, 115);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(532, 386);
+            this.pictureBox1.Size = new System.Drawing.Size(532, 397);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -70,6 +70,7 @@
             this.textBoxPassword.Size = new System.Drawing.Size(317, 58);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // labelNameUser
             // 

@@ -22,10 +22,37 @@ namespace Gestor_de_Proyectos
         private void buttonContinueCreateProyect_Click(object sender, EventArgs e)
         {
             string name = textBoxNameProyect.Text;
-            listPoroyects.Add(new Proyect(name));
-            CreateProyect2 f = new CreateProyect2(listPoroyects);
-            this.Hide();
-            f.Show();
+            if (name == "")
+            {
+                MessageBox.Show("Error: Debes introducir un nombre para el proyecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (existProyect(name))
+            {
+                MessageBox.Show("Error: Este nombre de proyecto ya esta en uso", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else {
+                listPoroyects.Add(new Proyect(name));
+                CreateProyect2 f = new CreateProyect2(listPoroyects);
+                this.Hide();
+                f.Show();
+            }
+            
+        }
+
+        private bool existProyect(string name)
+        {
+            bool exist = false;
+            int i = 0;
+            while (!exist && i<listPoroyects.Count) {
+                if (name == listPoroyects[i].name)
+                {
+                    exist = true;
+                }
+                else {
+                    i++;
+                }
+            }
+            return exist;
         }
     }
 }

@@ -65,5 +65,10 @@ namespace Gestor_de_Proyectos
             }
             
         }
+
+        private void CreateProyect2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

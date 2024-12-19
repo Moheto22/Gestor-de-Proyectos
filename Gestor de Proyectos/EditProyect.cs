@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace Gestor_de_Proyectos
         private List<Proyect> listProyects;
         private int index;
         private int page;
+        private static  string Key = "1234567890123456"; 
+        private static  string IV = "abcdefghijklmnop";
         public EditProyect(List<Proyect> listProyects,int index)
         {
             InitializeComponent();
@@ -209,6 +212,7 @@ namespace Gestor_de_Proyectos
                 {
                     tasks.Add(this.listProyects[this.index].tasks[i]);
                     j++;
+                    i = 0;
                 }
                 else
                 {
@@ -221,12 +225,29 @@ namespace Gestor_de_Proyectos
         private void buttonOut_Click(object sender, EventArgs e)
         {
             JArray arrayProyect = (JArray)JToken.FromObject(listProyects);
-            File.WriteAllText(@"..\..\data\proyects.json", arrayProyect.ToString());
+            string proyectCripted = encryptJson(arrayProyect.ToString());
+            File.WriteAllText(@"..\..\data\proyects.json", proyectCripted);
             JArray arrayDevs = (JArray)JToken.FromObject(getDevs());
-            File.WriteAllText(@"..\..\data\developers.json", arrayDevs.ToString());
+            string devsCripted = encryptJson(arrayDevs.ToString());
+            File.WriteAllText(@"..\..\data\developers.json", devsCripted);
             Menu m = new Menu(listProyects);
             m.Show();
             this.Hide();
+        }
+        public static string encryptJson(string jsonString)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(Key);
+                aes.IV = Encoding.UTF8.GetBytes(IV);
+
+                var encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+                var jsonBytes = Encoding.UTF8.GetBytes(jsonString);
+
+                var encryptedBytes = encryptor.TransformFinalBlock(jsonBytes, 0, jsonBytes.Length);
+
+                return Convert.ToBase64String(encryptedBytes);
+            }
         }
 
         private List<Developer> getDevs()
