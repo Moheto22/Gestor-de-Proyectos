@@ -66,6 +66,16 @@ namespace Gestor_de_Proyectos
         {
             return $"{name}";
         }
-        
+        public static void updateIDS(List<Proyect>list)
+        {
+            int max = 0;
+            foreach(Proyect proyect in list)
+            {
+                if(proyect.id > max){
+                    max = proyect.id;
+                }
+            }
+            total = max;
+        }
     }
 }

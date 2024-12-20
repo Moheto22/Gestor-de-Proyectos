@@ -27,9 +27,28 @@ namespace Gestor_de_Proyectos
             this.id = id;
             this.name = name;
         }
-    public override string ToString()
+        public override string ToString()
         {
             return $"{name}";
         }
+        public static void updateIDS(List<Proyect> list)
+        {
+            int max = 0;
+            foreach (Proyect proyect in list)
+            {
+                for (int i = 0; i<proyect.tasks.Count; i++)
+                {
+                    for(int j = 0; j < proyect.tasks[i].subTask.Count; j++)
+                    {
+                        if (proyect.tasks[i].subTask[j].id > max)
+                        {
+                            max = proyect.tasks[i].subTask[j].id;
+                        }
+                    }
+                }
+            }
+            total = max;
+        }
     }
+    
 }
